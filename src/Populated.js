@@ -8,11 +8,11 @@ class Populated extends React.Component {
       <div className="Populated" >
         {this.props.locationName &&
           <Figure>
-            <Figure.Image
-             width={171}
-             height={180}
-              alt="171x180"
-              src="holder.js/171x180"
+            <Figure.Image className='Map' 
+             width={500}
+             height={500}
+              alt='Image Of Your Selected City'
+              src={this.props.locationMap}
             />
             <Figure.Caption>{this.props.locationName}</Figure.Caption>
             <Figure.Caption>Lattitude:{this.props.locationLat}</Figure.Caption>
