@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+.Map {
+  border-radius: 10000px;
+  background-color: blue;
+}
+body {
+  background: rgb(34,137,195);
+  background: radial-gradient(circle, rgba(34,137,195,1) 0%, rgba(34,23,6,1) 100%);
+}
+.form.formLabel {
+  margin-bottom: 100px;
+}
+figcaption.figure-caption{
+color: white;
+}
