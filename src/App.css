@@ -13,5 +13,7 @@ body {
   margin-bottom: 100px;
 }
 figcaption.figure-caption{
-color: white;
+color: rgb(0, 0, 0);
+font-size: 1.5em;
+margin-bottom: 5px;
 }

@@ -1,23 +1,19 @@
 import React from 'react';
-import { Figure } from 'react-bootstrap';
+import { Figure, Image } from 'react-bootstrap';
 class Populated extends React.Component {
 
   render() {
-
+    
     return (
       <div className="Populated" >
         {this.props.locationName &&
+        <>
           <Figure>
-            <Figure.Image className='Map' 
-             width={500}
-             height={500}
-              alt='Image Of Your Selected City'
-              src={this.props.locationMap}
-            />
             <Figure.Caption>{this.props.locationName}</Figure.Caption>
             <Figure.Caption>Lattitude:{this.props.locationLat}</Figure.Caption>
-            <Figure.Caption>Longtitude:{this.props.locationLon}</Figure.Caption>
-          </Figure>
+            <Figure.Caption>Longtitude:{this.props.locationLon}</Figure.Caption><br></br>
+            <Image src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&center=${this.props.locationLat},${this.props.locationLon}&center=${this.props.locationLat},${this.props.locationLon}&zoom=${10}&size=${500}x${500}&format=<format>&maptype=<MapType>&markers=icon:<icon>|${this.props.locationLat},${this.props.locationLon}&markers=icon:<icon>`}/>
+          </Figure></>
         } 
       </div>
     );
