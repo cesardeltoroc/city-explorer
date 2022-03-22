@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import { Form, Button } from 'react-bootstrap'
 import axios from 'axios';
+import Cityform from './Cityform'
 import Populated from './Populated';
+import Weather from './Weather';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,9 +14,12 @@ class App extends React.Component {
       locationLat: '',
       locationLon: '',
       locationMap: '',
+      weatherData: [],
     }
   }
-
+  controlForm = (event) =>{
+    this.setState({searchQuery: event.target.value})
+  }
   getLocation = async (event) => {
     event.preventDefault();
     try {
@@ -24,27 +28,23 @@ class App extends React.Component {
       this.setState({ locationName: locatedCity.data[0].display_name })
       this.setState({ locationLat: locatedCity.data[0].lat });
       this.setState({ locationLon: locatedCity.data[0].lon });
-
+      this.getWeather();
     } catch (error) {
       alert(error.message)
     }
   }
-  
+  getWeather = async () => {
+    const url = `http://localhost:3001/weather?type=${this.state.locationLat}&type=${this.state.locationLon}`
+    const weatherRespone = await axios.get(url)
+    this.setState({weatherData: weatherRespone})
+    console.log(weatherRespone);
+  }
   render() {
-
     return (
       <div className="App">
-        <h1>Welcome To City Explorer</h1>
-        <div className='Form'>
-          <Form >
-            <Form.Group style={{marginTop: '20px'}}>
-            <Form.Label style={{color: 'white', fontSize: '1.5em', textDecoration: 'underline', marginRight: '20px' }}className='formLabel'>What City Do You Wanna Explore?</Form.Label>
-              <Form.Control style={{height: '20px', width : '150px'}}placeholder='Enter City' onChange={(event) => this.setState({ searchQuery: event.target.value })}></Form.Control>
-              <Button style={{height: '30px', width : 'max-content', marginLeft: '10px'}} type='submit' onClick={this.getLocation}>Explore</Button>
-            </Form.Group>
-          </Form>
-        </div>
+        <Cityform  getLocation={this.getLocation} controlForm={this.controlForm}/>
         <Populated locationMap={this.state.locationMap} locationName={this.state.locationName} locationLat={this.state.locationLat} locationLon={this.state.locationLon} />
+        <Weather getWeather={this.getWeather} show={this.state.show}/>
       </div>
     );
   }
