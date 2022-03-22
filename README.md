@@ -25,8 +25,8 @@ This application is using express.js, react.js, html, css, and javascript. Also 
 
 ## Change Log
 
-03-18-21- Created the back end for the server and impleeneted some of the searchQuery state updating. 
+03-18-22: Created the back end for the server and impleeneted some of the searchQuery state updating.
 
 ## Credit and Collaborations
 
-Worked on half of this lab 07 W classmates JJ & Erich.
+Worked on half of this lab 07 W classmates JJ & Erich. 03/18/22
