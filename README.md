@@ -30,4 +30,14 @@ This application is using express.js, react.js, html, css, and javascript. Also 
 ## Credit and Collaborations
 
 Worked on half of this lab 07 W classmates JJ & Erich. 03/18/22.
-<!--Trying to fix merge conflict>
+<!--Trying to fix merge conflict-->
+
+Name of feature: Lab07
+
+Estimate of time needed to complete: 3hr
+
+Start time: 1pm
+
+Finish time: 5pm
+
+Actual time needed to complete: 4hr

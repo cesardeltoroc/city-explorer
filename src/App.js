@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Cityform from './Cityform'
 import Populated from './Populated';
@@ -28,23 +29,31 @@ class App extends React.Component {
       this.setState({ locationName: locatedCity.data[0].display_name })
       this.setState({ locationLat: locatedCity.data[0].lat });
       this.setState({ locationLon: locatedCity.data[0].lon });
+      this.setState({show: true});
       this.getWeather();
     } catch (error) {
       alert(error.message)
     }
   }
   getWeather = async () => {
-    const url = `http://localhost:3001/weather?type=${this.state.locationLat}&type=${this.state.locationLon}`
-    const weatherRespone = await axios.get(url)
-    this.setState({weatherData: weatherRespone})
-    console.log(weatherRespone);
+    try{
+      const url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}`;
+      const weather = await axios.get(url);
+      this.setState({weatherData: weather.data})
+      console.log(this.state.weatherData);
+    }catch (error){
+      alert(error.message);
+    }
   }
   render() {
+    // console.log(this.state.weatherData);
     return (
       <div className="App">
-        <Cityform  getLocation={this.getLocation} controlForm={this.controlForm}/>
+        <Cityform  getLocation={this.getLocation} controlForm={this.controlForm} showAcc={this.showAcc}/>
         <Populated locationMap={this.state.locationMap} locationName={this.state.locationName} locationLat={this.state.locationLat} locationLon={this.state.locationLon} />
-        <Weather getWeather={this.getWeather} show={this.state.show}/>
+        {this.state.locationName ? (
+          <Weather searchQuery={this.state.searchQuery} weatherData={this.state.weatherData} />
+        ) : null}
       </div>
     );
   }
