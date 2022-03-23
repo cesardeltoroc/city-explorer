@@ -1,24 +1,30 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
 
-class Weather extends React.Component {
 
+class Weather extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    }
+  }
   render() {
     return (
-      <div className="Weather" >
-        <Accordion>
-          <Accordion.Item eventKey="0" >
-            <Accordion.Header>Day #1</Accordion.Header>
-            <Accordion.Body> Insert Weather Here</Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>Day  #2</Accordion.Header>
-            <Accordion.Body></Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-      </div>
+      <Accordion>
+        {this.props.weatherData.map((element, idx) => (
+          <div className='acc'>
+            <Accordion.Item key={idx} eventKey={idx} >
+              <Accordion.Header>{element.date}</Accordion.Header>
+              <Accordion.Body>{element.description}</Accordion.Body>
+            </Accordion.Item>
+          </div>
+        ))}
+      </Accordion>
     );
+
   }
+
 }
 
 export default Weather;
