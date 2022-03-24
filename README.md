@@ -19,7 +19,7 @@ Actual time needed to complete: 2hr
 This is a front end and back end application that allows users to search for locations they would like to travel to and get information
 
 ## Getting Started
-The start of this application was using an API to create a map and get the Lat and Lon of a location. Now on Lab 07 I have implemented a server back-end and used a hard coded API. 
+The start of this application was using an API to create a map and get the Lat and Lon of a location. Now on Lab 07 I have implemented a server back-end and used a hard coded API.
 ## Architecture
 This application is using express.js, react.js, html, css, and javascript. Also some bootstrap componenets.
 
@@ -41,4 +41,15 @@ Start time: 1pm
 Finish time: 5pm
 
 Actual time needed to complete: 4hr
-merge 
+
+![Domain Model](lab08-domain.jpg);
+
+Name of feature: Lab08
+
+Estimate of time needed to complete: 3hr
+
+Start time: 4pm
+
+Finish time: 9pm
+
+Actual time needed to complete: 5hr

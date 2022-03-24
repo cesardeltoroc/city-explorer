@@ -5,6 +5,8 @@ import axios from 'axios';
 import Cityform from './Cityform'
 import Populated from './Populated';
 import Weather from './Weather';
+import Movies from './Movies';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -16,10 +18,11 @@ class App extends React.Component {
       locationLon: '',
       locationMap: '',
       weatherData: [],
+      movieData: []
     }
   }
-  controlForm = (event) =>{
-    this.setState({searchQuery: event.target.value})
+  controlForm = (event) => {
+    this.setState({ searchQuery: event.target.value })
   }
   getLocation = async (event) => {
     event.preventDefault();
@@ -29,30 +32,42 @@ class App extends React.Component {
       this.setState({ locationName: locatedCity.data[0].display_name })
       this.setState({ locationLat: locatedCity.data[0].lat });
       this.setState({ locationLon: locatedCity.data[0].lon });
-      this.setState({show: true});
+      this.setState({ show: true });
       this.getWeather();
+      this.getMovies();
     } catch (error) {
       alert(error.message)
     }
   }
   getWeather = async () => {
-    try{
-      const url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}`;
+    try {
+      const url = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.locationLat}&lon=${this.state.locationLon}`;
       const weather = await axios.get(url);
-      this.setState({weatherData: weather.data})
-      console.log(this.state.weatherData);
-    }catch (error){
+      this.setState({ weatherData: weather.data })
+    } catch (error) {
+      console.error(error);
       alert(error.message);
     }
   }
+  getMovies = async () => {
+    try {
+      const url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
+      const movies = await axios.get(url)
+      this.setState({ movieData: movies.data })
+    } catch (error) {
+      alert(error.message)
+    }
+  }
   render() {
-    // console.log(this.state.weatherData);
     return (
       <div className="App">
-        <Cityform  getLocation={this.getLocation} controlForm={this.controlForm} showAcc={this.showAcc}/>
+        <Cityform getLocation={this.getLocation} controlForm={this.controlForm} showAcc={this.showAcc} />
         <Populated locationMap={this.state.locationMap} locationName={this.state.locationName} locationLat={this.state.locationLat} locationLon={this.state.locationLon} />
         {this.state.locationName ? (
-          <Weather searchQuery={this.state.searchQuery} weatherData={this.state.weatherData} />
+          <Weather weatherData={this.state.weatherData} />
+        ) : null}
+        {this.state.locationName ? (
+          <Movies movieData={this.state.movieData} />
         ) : null}
       </div>
     );
