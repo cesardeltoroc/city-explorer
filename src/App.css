@@ -24,3 +24,8 @@ input.form-control {
   margin: auto;
   margin-bottom: 10px;
 }
+div.card{
+  display: inline;
+  justify-content: space-between;
+}
+
