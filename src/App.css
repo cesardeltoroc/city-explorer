@@ -7,9 +7,12 @@
 }
 body {
   background: rgb(34,137,195);
-  background: radial-gradient(circle, rgba(34,137,195,1) 0%, rgba(34,23,6,1) 100%);
+  background: radial-gradient(circle, rgba(34,137,195,1) 50%, rgba(34,23,6,1) 100%);
 }
-
+h1 {
+  color: white;
+  margin-top: 90px;
+}
 figcaption.figure-caption{
 color: rgb(0, 0, 0);
 font-size: 1.5em;
@@ -28,4 +31,7 @@ div.card{
   display: inline;
   justify-content: space-between;
 }
-
+img {
+  border-radius: 300px;
+  background-color: black;
+}

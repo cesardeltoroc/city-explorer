@@ -43,9 +43,9 @@ class App extends React.Component {
     try {
       const url = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.locationLat}&lon=${this.state.locationLon}`;
       const weather = await axios.get(url);
-      this.setState({ weatherData: weather.data })
+      this.setState({ weatherData: weather.data})
+      console.log(this.state.weatherData[0])
     } catch (error) {
-      console.error(error);
       alert(error.message);
     }
   }
@@ -54,6 +54,7 @@ class App extends React.Component {
       const url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
       const movies = await axios.get(url)
       this.setState({ movieData: movies.data })
+      console.log(this.state.movieData[0]);
     } catch (error) {
       alert(error.message)
     }

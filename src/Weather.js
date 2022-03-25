@@ -14,9 +14,11 @@ class Weather extends React.Component {
       <Accordion>
         {this.props.weatherData.map((element, idx) => (
           <div className='acc' key={idx}>
-            <Accordion.Item key={idx} eventKey={idx} >
+            <Accordion.Item  eventKey={idx} >
               <Accordion.Header>{element.date}</Accordion.Header>
-              <Accordion.Body>{element.description}</Accordion.Body>
+              <Accordion.Body>High: {element.highTemp}</Accordion.Body>
+              <Accordion.Body>Low: {element.lowTemp}</Accordion.Body>
+              <Accordion.Body>Forecast: {element.description}</Accordion.Body>
             </Accordion.Item>
           </div>
         ))}
