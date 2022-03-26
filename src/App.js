@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Cityform from './Cityform'
 import Populated from './Populated';
-import Weather from './Weather';
-import Movies from './Movies';
+import Weather from './Weather /Weather';
+import Movies from './Movies/Movies';
 
 
 class App extends React.Component {
@@ -72,8 +72,14 @@ class App extends React.Component {
           locationLon={this.state.locationLon}/>
         {this.state.locationName && (
           <>
-          <Weather weatherData={this.state.weatherData} />
-          <Movies movieData={this.state.movieData} />
+          <Weather 
+          weatherData={this.state.weatherData} 
+          locationName={this.state.locatioName}
+          />
+          <Movies 
+          movieData={this.state.movieData}
+          locationName={this.state.locatioName}
+          />
           </>
         )}
       </div>
