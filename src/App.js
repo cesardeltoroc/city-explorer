@@ -16,7 +16,6 @@ class App extends React.Component {
       locationName: '',
       locationLat: '',
       locationLon: '',
-      locationMap: '',
       weatherData: [],
       movieData: []
     }
@@ -29,10 +28,11 @@ class App extends React.Component {
     try {
       const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.searchQuery}&format=json`
       const locatedCity = await axios.get(url);
-      this.setState({ locationName: locatedCity.data[0].display_name })
-      this.setState({ locationLat: locatedCity.data[0].lat });
-      this.setState({ locationLon: locatedCity.data[0].lon });
-      this.setState({ show: true });
+      this.setState({
+        locationName: locatedCity.data[0].display_name, 
+        locationLat: locatedCity.data[0].lat,
+        locationLon: locatedCity.data[0].lon
+      })
       this.getWeather();
       this.getMovies();
     } catch (error) {
@@ -62,14 +62,20 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Cityform getLocation={this.getLocation} controlForm={this.controlForm} showAcc={this.showAcc} />
-        <Populated locationMap={this.state.locationMap} locationName={this.state.locationName} locationLat={this.state.locationLat} locationLon={this.state.locationLon} />
-        {this.state.locationName ? (
+        <Cityform 
+          getLocation={this.getLocation}
+          controlForm={this.controlForm}
+          showAcc={this.showAcc} />
+        <Populated
+          locationName={this.state.locationName} 
+          locationLat={this.state.locationLat} 
+          locationLon={this.state.locationLon}/>
+        {this.state.locationName && (
+          <>
           <Weather weatherData={this.state.weatherData} />
-        ) : null}
-        {this.state.locationName ? (
           <Movies movieData={this.state.movieData} />
-        ) : null}
+          </>
+        )}
       </div>
     );
   }
