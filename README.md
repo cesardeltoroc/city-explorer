@@ -53,3 +53,15 @@ Start time: 4pm
 Finish time: 9pm
 
 Actual time needed to complete: 5hr total
+
+![Domain Model](lab09-modeling.png)
+
+Name of feature:Lab 09
+
+Estimate of time needed to complete: 2hr
+
+Start time: 1pm
+
+Finish time: 3pm
+
+Actual time needed to complete: 2hr
