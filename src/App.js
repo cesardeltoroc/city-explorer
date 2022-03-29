@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Cityform from './Cityform'
-import Populated from './Populated';
+import Populated from './locationIQ/Populated';
 import Weather from './Weather /Weather';
 import Movies from './Movies/Movies';
 
