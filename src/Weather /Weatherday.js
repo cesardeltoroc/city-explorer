@@ -1,18 +1,19 @@
 import React from "react";
-import { Accordion } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 class Weatherday extends React.Component {
   render() {
     return (
-      <Accordion>
-        <Accordion.Item eventKey={this.props.idx} >
-          <Accordion.Header>{this.props.weather.date}</Accordion.Header>
-          <Accordion.Body>High: {this.props.weather.highTemp}</Accordion.Body>
-          <Accordion.Body>Low: {this.props.weather.lowTemp}</Accordion.Body>
-          <Accordion.Body>Forecast: {this.props.weather.description}</Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+      <Card style={{ width: '18rem' }}>
+        <Card.Body>
+          <Card.Title>{this.props.weather.date}</Card.Title>
+          <Card.Text>High: {this.props.weather.highTemp}</Card.Text>
+          <Card.Text>High: {this.props.weather.lowTemp}</Card.Text>
+          <Card.Text>High: {this.props.weather.description}</Card.Text>
+        </Card.Body>
+      </Card>
     )
   }
 }
 export default Weatherday;
+
