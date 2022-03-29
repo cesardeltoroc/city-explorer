@@ -1,9 +1,16 @@
+div.weather{
+  display: inline-block;
+  width: 300px;
+}
+div.card {
+  display: inline-block;
+  justify-content: space-between;
+  background-color: rgb(52, 52, 52);
+  margin: 10px 10px;
+  color: white;
+}
 .App {
   text-align: center;
-}
-.Map {
-  border-radius: 10000px;
-  background-color: blue;
 }
 body {
   background: rgb(34,137,195);
@@ -12,6 +19,9 @@ body {
 h1 {
   color: white;
   margin-top: 90px;
+}
+img {
+  border-radius: 300px;
 }
 figcaption.figure-caption{
 color: rgb(0, 0, 0);
@@ -22,16 +32,13 @@ input.form-control {
   margin: auto;
   margin-bottom: 10px;
 }
-.acc {
-  width: 500px;
-  margin: auto;
+
+div.movie{
+  display: inline-block;
+}
+input.form-control{
+  width: max-content;
+}
+button.btn.btn-primary{
   margin-bottom: 10px;
-}
-div.card{
-  display: inline;
-  justify-content: space-between;
-}
-img {
-  border-radius: 300px;
-  background-color: black;
 }
