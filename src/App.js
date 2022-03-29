@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
+import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import Cityform from './Cityform'
+import Cityform from './cityForm/Cityform'
 import Populated from './locationIQ/Populated';
 import Weather from './Weather /Weather';
 import Movies from './Movies/Movies';
