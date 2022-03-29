@@ -1,6 +1,6 @@
 # Info Through this Lab
 
-![Domain Modeling](domain-modeling.png);
+![Domain Modeling](./domainModeling/domain-modeling.png);
 
 Name of feature: Adding API to city explorer
 
@@ -42,7 +42,7 @@ Finish time: 5pm
 
 Actual time needed to complete: 4hr
 
-![Domain Model](lab08-domain.jpg);
+![Domain Model](./domainModeling/lab08-domain.jpg);
 
 Name of feature: Lab08
 
@@ -54,7 +54,7 @@ Finish time: 9pm
 
 Actual time needed to complete: 5hr total
 
-![Domain Model](lab09-modeling.png)
+![Domain Model](./domainModeling/lab09-modeling.png)
 
 Name of feature:Lab 09
 
