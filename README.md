@@ -65,3 +65,14 @@ Start time: 1pm
 Finish time: 3pm
 
 Actual time needed to complete: 2hr
+
+![Domain Model Caching](./domainModeling/lab10-modeling.png)
+Name of feature: Lab10
+
+Estimate of time needed to complete: 2hr
+
+Start time: 5pm
+
+Finish time: 8pm
+
+Actual time needed to complete: 3hr
