@@ -10,7 +10,7 @@ class Weatherday extends React.Component {
             <Card.Title>{this.props.weather.date}</Card.Title>
             <Card.Text>High: {this.props.weather.highTemp}</Card.Text>
             <Card.Text>High: {this.props.weather.lowTemp}</Card.Text>
-            <Card.Text>High: {this.props.weather.description}</Card.Text>
+            <Card.Text>Description: {this.props.weather.description}</Card.Text>
           </Card.Body>
         </Card>
       </div>
