@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Cityform from './cityForm/Cityform'
 import Populated from './locationIQ/Populated';
-import Weather from './Weather /Weather';
 import Movies from './locationIQ/Movies/Movies';
+// import Weather from './forecast/Weather'
 
 
 class App extends React.Component {
@@ -44,7 +44,6 @@ class App extends React.Component {
       const url = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.locationLat}&lon=${this.state.locationLon}`;
       const weather = await axios.get(url);
       this.setState({ weatherData: weather.data})
-      console.log(this.state.weatherData[0])
     } catch (error) {
       alert(error.message);
     }
@@ -54,7 +53,6 @@ class App extends React.Component {
       const url = `${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.searchQuery}`
       const movies = await axios.get(url)
       this.setState({ movieData: movies.data })
-      console.log(this.state.movieData[0]);
     } catch (error) {
       alert(error.message)
     }
@@ -72,10 +70,10 @@ class App extends React.Component {
           locationLon={this.state.locationLon}/>
         {this.state.locationName && (
           <>
-          <Weather 
+          {/* <Weather 
           weatherData={this.state.weatherData} 
           locationName={this.state.locatioName}
-          />
+          /> */}
           <Movies 
           movieData={this.state.movieData}
           locationName={this.state.locatioName}
