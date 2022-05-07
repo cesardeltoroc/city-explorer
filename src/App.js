@@ -5,7 +5,7 @@ import axios from 'axios';
 import Cityform from './cityForm/Cityform'
 import Populated from './locationIQ/Populated';
 import Weather from './Weather /Weather';
-import Movies from './Movies';
+import Movies from './locationIQ/Movies/Movies';
 
 
 class App extends React.Component {
